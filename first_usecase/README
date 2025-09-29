@@ -1,0 +1,129 @@
+PROBLEM STATEMENT: 1
+
+📌 Patterns Covered
+1. Strategy Pattern – Dynamic Discounts
+
+File: strategy.ts
+
+Use Case: Apply different discount strategies (percentage or flat amount) to coffee orders.
+
+Why: The discount calculation algorithm can change at runtime.
+
+Example:
+
+15% off → Final price: $85.00
+
+Flat $20 off → Final price: $80.00
+
+2. Observer Pattern – Stock/Price Notifications
+
+File: observer.ts
+
+Use Case: Apps (observers) get notified automatically when stock price changes.
+
+Why: Keeps multiple subscribers updated without tightly coupling them.
+
+Example:
+
+Price crosses $105 → Observers suggest “Sell”.
+
+Price stays low → Observers keep “Monitoring”.
+
+3. Factory Method Pattern – Invoice Generation
+
+File: factory.ts
+
+Use Case: Generate invoices in different formats (PDF, HTML).
+
+Why: Client code only requests a document, the factory decides which one to produce.
+
+Example:
+
+PDF Invoice → “Rendering PDF document (formatted for print).”
+
+HTML Invoice → “Rendering HTML document (formatted for web).”
+
+4. Singleton Pattern – Global Configuration
+
+File: singleton.ts
+
+Use Case: Only one instance of configuration manager exists, shared across the app.
+
+Why: Centralized access to settings like DB connection, tax rates, thread limits.
+
+Example:
+
+config1 and config2 both point to the same object.
+
+Updating one updates the other.
+
+5. Adapter Pattern – Legacy Payment Integration
+
+File: adapter.ts
+
+Use Case: Modern app expects login(username, token) but legacy system uses authenticateUser(username, passwordHash).
+
+Why: Bridges incompatible interfaces without rewriting old code.
+
+Example:
+
+Modern app calls → Adapter translates → Legacy system executes.
+
+6. Decorator Pattern – Coffee Add-ons
+
+File: decorator.ts
+
+Use Case: Start with a simple coffee and dynamically add extras (Milk, Extra Shot).
+
+Why: Add responsibilities at runtime without modifying the base class.
+
+Example:
+
+Simple Coffee ($5)
+
+Milk (+$1.50)
+
+Extra Shot (+$2.00)
+
+🚀 main.ts – Coffee Shop Simulator (All 6 usecases Together)
+
+The console-based application ties all six patterns into a single Coffee Shop domain:
+
+Decorator → Build your coffee (Simple, add Milk, add Extra Shot).
+
+Strategy → Apply a discount (percentage or flat).
+
+Observer → Notify manager when a high-value order is placed.
+
+Factory → Generate invoice (PDF/HTML).
+
+Adapter → Process payment via legacy system.
+
+Singleton → Global configuration (e.g., tax rate).
+
+Sample Flow:
+=== Welcome to Coffee Shop Simulator ===
+
+Add Milk? (y/n): y
+Add Extra Shot? (y/n): y
+Order: Simple Coffee, Milk, Extra Shot, Base Cost: $8.50
+
+Discount type (percentage/flat): percentage
+Enter discount %: 10
+Price after discount: $7.65
+
+[Manager] Notification: High value order placed!
+Invoice type (pdf/html): pdf
+PDF Invoice generated
+Legacy Payment processed: $7.65
+Tax Rate from Config: 0.05
+
+🛠️ Tech Stack
+
+Language: TypeScript
+
+Runtime: Node.js with ts-node
+
+Input: Console (readline)
+
+How to run : npx ts-node first_usecase/<filename>.ts
