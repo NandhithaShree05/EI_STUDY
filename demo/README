@@ -1,0 +1,35 @@
+PROBLEM STATEMENT: 2
+
+Real-Time Chat Application
+
+A simple Real-time chat application built with TypeScript (Node.js) that demonstrates
+real-world messaging features along with  design patterns  (Observer, Singleton, Adapter)
+and OOP principles.
+
+Features: 
+
+- ✅  Create/Join Chat Rooms  using unique room IDs  
+- ✅  Real-time Messaging  across all users in a room  
+- ✅  Active Users List  with `/users` command  
+- ✅  Private Messaging  using `@username <message>`  
+- ✅  Persistent Chat History  stored in `chat_history/` (reloads when users rejoin)  
+- ✅  Join/Leave Notifications   
+- ✅  Logging & Error Handling  for reliability  
+
+Architecture & Design Patterns:
+
+-  Observer Pattern  → `broadcast()` notifies all clients in a room of new messages or activities  
+-  Singleton Pattern  → `ChatRoomManager` manages all rooms/messages, ensuring only one instance controls state  
+-  Adapter Pattern  → `ChatProtocolAdapter` interface with `TcpChatAdapter` implementation (easily extendable to WebSocket/HTTP)  
+-  OOP Principles   
+- Encapsulation: `ClientHandler` hides socket handling  
+- Polymorphism: multiple protocol adapters can be used  
+- Inheritance-ready: base structures designed for extensibility  
+
+How to run :
+
+1. Run this in terminal to start the server:
+npx ts-node demo/chat-server.ts 
+
+2. Run this in multiple terminals to have a chat:
+npx ts-node demo/chat-client.ts 
